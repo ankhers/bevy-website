@@ -9,6 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
+      - name: Lint Markdown
+        uses: avto-dev/markdown-lint@v1
+        args: './content'
+
       - name: "Build Bevy Assets"
         run: cd generate-assets && ./generate_assets.sh
 
@@ -30,3 +34,4 @@ jobs:
           BUILD_DIR: .
           BUILD_ONLY: true
           TOKEN: fake-secret
+
